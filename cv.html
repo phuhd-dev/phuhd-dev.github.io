@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CV — Huỳnh Đại Phú — Flutter Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #ffffff;
+      --desk: #e4e9f1;
+      --ink: #0f1a3a;
+      --ink-2: #3a4767;
+      --ink-3: #66728f;
+      --line: #d9e0ea;
+      --chip: #eef2f7;
+      --accent: #2c3e94;
+      --accent-soft: #dde3f5;
+      --serif: "Fraunces", Georgia, serif;
+      --sans: "Be Vietnam Pro", system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      margin: 0; background: var(--desk); color: var(--ink);
+      font: 400 8.7pt/1.42 var(--sans); -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, p, ul, dl, dd { margin: 0; padding: 0; }
+    ul { list-style: none; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── thanh công cụ (chỉ hiện trên màn hình) ───────────── */
+    .toolbar {
+      position: sticky; top: 0; z-index: 5;
+      display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;
+      padding: 10px 16px; background: rgb(15 26 58 / 0.94); color: #eef2fb; font-size: 13px;
+    }
+    .toolbar button {
+      font: 600 13px var(--sans); border: 0; border-radius: 999px; padding: 8px 16px;
+      background: #a9b9ff; color: #0f1a3a; cursor: pointer;
+    }
+
+    /* ── trang A4 ─────────────────────────────────────────── */
+    .page {
+      position: relative;
+      width: 210mm; height: 297mm; margin: 24px auto; padding: 12mm 14mm 14mm 16mm;
+      background: var(--paper); overflow: hidden;
+      box-shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 18px 40px -18px rgb(0 0 0 / 0.35);
+    }
+    .page::before { /* vạch màu nhấn ở mép trái */
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4mm; background: var(--accent);
+    }
+    .page__foot {
+      position: absolute; left: 16mm; right: 14mm; bottom: 7mm;
+      display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--ink-3);
+    }
+
+    /* ── header ──────────────────────────────────────────── */
+    .head { display: grid; grid-template-columns: 1fr 26mm; gap: 6mm; align-items: center; }
+    .name { font: 600 26pt/1 var(--serif); letter-spacing: -0.02em; font-variation-settings: "opsz" 144; }
+    .title { font: italic 400 11.5pt/1.25 var(--serif); color: var(--accent); margin-top: 2mm; }
+    .contact { display: flex; flex-wrap: wrap; gap: 1mm 5mm; margin-top: 3.5mm; font-size: 8.2pt; color: var(--ink-2); }
+    .contact li { display: inline-flex; align-items: center; gap: 1.6mm; }
+    .contact svg { width: 3.4mm; height: 3.4mm; color: var(--accent); flex: none; }
+    .photo { width: 26mm; height: 26mm; border-radius: 50%; object-fit: cover; border: 0.8mm solid var(--accent-soft); }
+
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 4.5mm;
+      border: 1px solid var(--line); border-radius: 2.5mm; overflow: hidden;
+    }
+    .stat { padding: 2mm 3mm; border-left: 1px solid var(--line); }
+    .stat:first-child { border-left: 0; }
+    .stat b { display: block; font: 600 12.5pt/1.1 var(--serif); }
+    .stat span { display: block; font-size: 7.3pt; line-height: 1.3; color: var(--ink-3); margin-top: 0.6mm; }
+
+    /* ── section ─────────────────────────────────────────── */
+    .sec { margin-top: 4.4mm; }
+    .sec__h {
+      display: flex; align-items: baseline; gap: 2.5mm;
+      padding-bottom: 1.2mm; margin-bottom: 2.4mm; border-bottom: 1px solid var(--line);
+    }
+    .sec__h small { font: 600 7.5pt var(--sans); letter-spacing: 0.08em; color: var(--accent); }
+    .sec__h h2 { font: 600 11.5pt var(--serif); letter-spacing: -0.005em; }
+    .summary { color: var(--ink-2); font-size: 8.8pt; line-height: 1.5; }
+    .summary b { color: var(--ink); font-weight: 600; }
+
+    /* kinh nghiệm */
+    .job { display: grid; grid-template-columns: 30mm 1fr; gap: 3.5mm; padding: 2.6mm 0; border-bottom: 1px dashed var(--line); }
+    .job:first-of-type { padding-top: 0; }
+    .job:last-child { border-bottom: 0; padding-bottom: 0; }
+    .when { white-space: nowrap; font-size: 8pt; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+    .when span { white-space: normal; display: block; color: var(--ink-3); font-size: 7.5pt; margin-top: 0.6mm; }
+    .role { font-size: 9.8pt; font-weight: 600; line-height: 1.3; }
+    .role em { font-style: normal; color: var(--accent); }
+    .ctx { font-size: 8.2pt; color: var(--ink-3); margin: 0.4mm 0 1.2mm; }
+    .wins li { position: relative; padding-left: 4mm; margin-top: 0.8mm; color: var(--ink); }
+    .wins li::before { content: ""; position: absolute; left: 0.4mm; top: 0.62em; width: 2.2mm; height: 0.45mm; background: var(--accent); border-radius: 1px; }
+    .wins b { font-weight: 600; }
+
+    /* dự án */
+    table { width: 100%; border-collapse: collapse; font-size: 8.1pt; }
+    th { text-align: left; font: 600 7.2pt var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding: 0 2mm 1.6mm 0; }
+    td { padding: 1.1mm 2mm 1.1mm 0; border-top: 1px solid var(--line); vertical-align: top; color: var(--ink-2); }
+    td:first-child { color: var(--ink); }
+    td b { font-weight: 600; }
+    td small { display: block; color: var(--ink-3); font-size: 7.3pt; }
+    .link { color: var(--accent); }
+
+    /* kỹ năng */
+    .skills { display: grid; }
+    .skills > div { display: grid; grid-template-columns: 33mm 1fr; gap: 4mm; padding: 1.1mm 0; border-bottom: 1px dashed var(--line); }
+    .skills > div:last-child { border-bottom: 0; }
+    .skills dt { font-weight: 600; font-size: 8.2pt; }
+    .skills dd { color: var(--ink-2); font-size: 8.2pt; }
+    .skills dd b { color: var(--ink); font-weight: 600; }
+
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
+    .plain p { color: var(--ink-2); }
+    .plain p b { color: var(--ink); font-weight: 600; }
+
+    /* ── in ──────────────────────────────────────────────── */
+    @page { size: A4; margin: 0; }
+    @media print {
+      body { background: none; }
+      .toolbar { display: none; }
+      .page { margin: 0; box-shadow: none; break-after: page; }
+      .page:last-child { break-after: auto; }
+    }
+    @media screen and (max-width: 860px) {
+      .page { zoom: 0.5; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <span>CV khổ A4 · 2 trang</span>
+    <button type="button" onclick="window.print()">In / Lưu PDF</button>
+  </div>
+
+  <!-- ═════════════ TRANG 1 ═════════════ -->
+  <section class="page">
+    <header class="head">
+      <div>
+        <h1 class="name">Huỳnh Đại Phú</h1>
+        <p class="title">Flutter Developer (Mid-level) · 6 năm phát triển ứng dụng mobile đa nền tảng</p>
+        <ul class="contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a href="mailto:phuhd.dev@gmail.com">phuhd.dev@gmail.com</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><a href="tel:+84768860660">(+84) 768 860 660</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg><a href="https://www.linkedin.com/in/phuhd/">linkedin.com/in/phuhd</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Nha Trang, Khánh Hoà · Toàn thời gian · Tại Nha Trang: Onsite / Hybrid / Remote · Nơi khác: Remote</li>
+        </ul>
+      </div>
+      <img class="photo" src="assets/avatar.jpg" alt="Ảnh Huỳnh Đại Phú">
+    </header>
+
+    <div class="stats">
+      <div class="stat"><b>6 năm</b><span>phát triển ứng dụng mobile đa nền tảng</span></div>
+      <div class="stat"><b>2 app FX</b><span>SBI FX &amp; OANDA証券 cho thị trường Nhật</span></div>
+      <div class="stat"><b>−30%</b><span>thời gian tải app CiAMS (Vinpearl)</span></div>
+    </div>
+
+    <section class="sec">
+      <div class="sec__h"><small>01</small><h2>Tóm tắt</h2></div>
+      <p class="summary">
+        Flutter Developer (mid-level), có <b>6 năm phát triển ứng dụng mobile đa nền tảng</b> (iOS &amp; Android) cho <b>fintech, doanh nghiệp và đô thị thông minh</b>.
+        Gần nhất tôi phát triển 2 app giao dịch FX cho thị trường Nhật Bản: <b>SBI FX</b> (đã có trên store) và <b>OANDA証券</b> (developer chính cùng leader, dựng từ con số 0 đến giai đoạn chuẩn bị phát hành).
+        Tôi làm chính phần <b>đặt lệnh, cập nhật giá realtime và đăng nhập</b>. Trước đó tôi là <b>developer chính của CiAMS</b>, hệ thống quản lý tài sản cho nhân viên Vinpearl, và đã <b>giảm 30% thời gian tải app</b>.
+        Tôi có kinh nghiệm dẫn dắt nhóm nhỏ, review code, xây codebase theo Clean Architecture và viết test, và <b>dùng AI (Claude Code, GitHub Copilot) hằng ngày</b> để viết code, debug và kiểm thử.
+      </p>
+    </section>
+
+    <section class="sec">
+      <div class="sec__h"><small>02</small><h2>Kinh nghiệm làm việc</h2></div>
+
+      <article class="job">
+        <p class="when">01/2023 — 10/2026<span>Tân Bình, TP. HCM</span></p>
+        <div>
+          <h3 class="role">Lập trình viên Mobile (Flutter) · <em>GUIDE Co., Ltd</em></h3>
+          <p class="ctx">Phát triển 2 app giao dịch FX cho SBI FX và OANDA証券, phục vụ thị trường Nhật Bản. Mỗi dự án có team mobile 3 người (1 leader, 2 developer), làm việc với khách hàng Nhật qua BrSE.</p>
+          <ul class="wins">
+            <li>Làm chính phần <b>đặt lệnh của SBIFX</b>, lõi nghiệp vụ của app: đủ các loại lệnh (thường, IFD, OCO, IFD-OCO, Limit/Stop, Trail, Speed Order), sửa lệnh, đóng vị thế hàng loạt, cùng công thức <b>lãi/lỗ quy ra Yên và tính theo pips</b>. Qua kiểm thử tích hợp (ITb) <b>không phát sinh lỗi nghiêm trọng</b>.</li>
+            <li>Là <b>developer chính cùng leader</b>, dựng <b>app OANDA từ con số 0</b> (02/2025) đến giai đoạn chuẩn bị phát hành bản đầu tiên (<b>dự kiến 11/2026</b>): home, watchlist, đặt lệnh, position.</li>
+            <li>Xây phần <b>cập nhật giá và vị thế realtime</b>: dữ liệu không bị mất hay sai thứ tự khi mạng chậm, khi đổi tab hoặc khi app chạy nền.</li>
+            <li>Đưa app OANDA lên <b>màn hình gập và màn hình kép</b> (Pixel Fold, Android Adaptive Apps, <b>iPhone Duo trên iOS 27 SDK</b>): bố cục responsive theo kích thước màn hình; giữ đúng trạng thái và <b>phiên đăng nhập</b> khi gập, mở hoặc xoay máy; sửa lỗi <b>app bị treo khi đổi chế độ điều hướng hệ thống</b> (xử lý cả phía native Android).</li>
+            <li>Đề xuất và dựng <b>mock stream API, mock Remote Config</b> và cơ chế <b>chuyển nhanh giữa API thật và stub API</b>, giúp cả team phát triển và test mà không phải chờ backend. Review code cho các thành viên trong team.</li>
+            <li>Đưa <b>AI (GitHub Copilot, sau đó là Claude Code)</b> vào công việc hằng ngày: viết code, debug, <b>dò root cause từ log</b>, review code và viết test, nhờ vậy <b>phủ được nhiều case kiểm thử hơn</b>, kể cả test thao tác trên giao diện app.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">11/2021 — 12/2022<span>Quận 3, TP. HCM</span></p>
+        <div>
+          <h3 class="role">Lập trình viên Mobile (Flutter) · <em>VinHMS Software JSC</em></h3>
+          <p class="ctx">Developer chính của <b>CiAMS</b>, app quản lý tài sản doanh nghiệp (EAM) dùng nội bộ cho nhân viên Vinpearl.</p>
+          <ul class="wins">
+            <li>Là <b>developer chính</b>, đưa CiAMS về đích <b>đúng hạn</b> dù yêu cầu nghiệp vụ thay đổi liên tục.</li>
+            <li>Xây chế độ <b>offline</b>: app vẫn dùng được khi mất mạng và <b>tự đồng bộ dữ liệu khi có mạng lại</b>. Cache dữ liệu cục bộ (SQLite) kết hợp lazy loading giúp <b>giảm 30% thời gian tải app</b>.</li>
+            <li>Xây các nghiệp vụ trên app: <b>kiểm kê tài sản bằng quét mã</b>, giao việc và bảo trì, tra cứu thông tin và lịch sử vòng đời tài sản, quản lý kho vật tư – phụ tùng, <b>báo lỗi kèm chụp ảnh</b> và ghi chỉ số điện nước.</li>
+            <li>Phối hợp với DevOps và backend để <b>tích hợp Datadog</b> vào app, giúp theo dõi lỗi và hiệu năng ngay trên môi trường thật.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <footer class="page__foot"><span>Huỳnh Đại Phú — Flutter Developer</span><span>1 / 2</span></footer>
+  </section>
+
+  <!-- ═════════════ TRANG 2 ═════════════ -->
+  <section class="page">
+    <section class="sec" style="margin-top:0">
+      <div class="sec__h"><small>02</small><h2>Kinh nghiệm làm việc <span style="font:400 9pt var(--sans);color:var(--ink-3)">(tiếp)</span></h2></div>
+
+      <article class="job">
+        <p class="when">11/2020 — 10/2021<span>TP. Thủ Đức, TP. HCM</span></p>
+        <div>
+          <h3 class="role">Lập trình viên Mobile (Flutter) · <em>FPT Software</em></h3>
+          <p class="ctx">Phát triển DxKit, app tiện ích dành cho cư dân khu đô thị.</p>
+          <ul class="wins">
+            <li><b>Team Lead dự án DxKit</b> (03–06/2021), dẫn dắt nhóm <b>3 người</b> ở giai đoạn kick-off. Tôi nhận yêu cầu từ BA, chia task, giao cho đúng người và giữ dự án đúng tiến độ.</li>
+            <li>Điều phối việc phát hành phiên bản mới, cập nhật tính năng và bản sửa lỗi.</li>
+            <li>Phân tích báo cáo lỗi để tìm ra xu hướng và xử lý dứt điểm các lỗi tái diễn.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">01/2020 — 10/2020<span>Quận 1, TP. HCM</span></p>
+        <div>
+          <h3 class="role">Lập trình viên Mobile (Flutter) · <em>Two Media Co., Ltd</em></h3>
+          <p class="ctx">Phát triển Mano, nền tảng kiểm duyệt và xem video.</p>
+          <ul class="wins">
+            <li>Cùng nhóm hoàn thiện app Mano trên Flutter: quản lý tài khoản và xem video đã kiểm duyệt.</li>
+            <li>Hỗ trợ đội backend (Golang / Buffalo) xây <b>API tải video lên AWS S3</b>, cùng <b>WebSocket server và client</b>.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="sec">
+      <div class="sec__h"><small>03</small><h2>Dự án tiêu biểu</h2></div>
+      <table>
+        <thead><tr><th style="width:22%">Dự án</th><th style="width:28%">Lĩnh vực</th><th style="width:23%">Vai trò</th><th>Công nghệ chính</th></tr></thead>
+        <tbody>
+          <tr><td><b>SBI FX</b> <a class="link" href="https://apps.apple.com/jp/app/sbi%E8%A8%BC%E5%88%B8-fx%E3%82%A2%E3%83%97%E3%83%AA-fx-%E7%82%BA%E6%9B%BF%E3%81%AE%E5%8F%96%E5%BC%95%E3%82%A2%E3%83%97%E3%83%AA/id449512771">↗ App Store</a><small>2023 – 2026</small></td><td>Giao dịch FX, thị trường Nhật</td><td>Developer, làm chính phần đặt lệnh</td><td>Flutter, Riverpod, AutoRoute, platform channel iOS</td></tr>
+          <tr><td><b>OANDA証券</b><small>2025 – 2026</small></td><td>Giao dịch FX &amp; CFD, thị trường Nhật</td><td>Developer chính cùng leader, từ đầu dự án</td><td>Flutter, Riverpod, SSE, Auth0, WebView</td></tr>
+          <tr><td><b>CiAMS</b> <a class="link" href="https://apps.apple.com/vn/app/staff-app/id6449700366?l=vi">↗ App Store</a><small>2021 – 2022</small></td><td>Quản lý tài sản doanh nghiệp (EAM), Vinpearl</td><td>Developer chính</td><td>Flutter, GetX, SQLite (offline sync), Firebase, Datadog</td></tr>
+          <tr><td><b>DxKit</b><small>2021</small></td><td>Tiện ích cư dân đô thị</td><td>Developer, Team Lead</td><td>Flutter, BLoC, RxDart, Provider, Firebase</td></tr>
+          <tr><td><b>Mano</b><small>2020</small></td><td>Nền tảng kiểm duyệt video</td><td>Developer</td><td>Flutter, BLoC, Firebase, Golang</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sec">
+      <div class="sec__h"><small>04</small><h2>Kỹ năng</h2></div>
+      <dl class="skills">
+        <div><dt>Mobile</dt><dd>Flutter, Dart, ứng dụng đa nền tảng iOS &amp; Android, Clean Architecture, Platform channel (Swift / Kotlin)</dd></div>
+        <div><dt>State management</dt><dd>Riverpod, BLoC, GetX, RxDart, Provider, GetIt</dd></div>
+        <div><dt>Chất lượng</dt><dd>Unit / Widget / Integration test, review code, mock / stub API</dd></div>
+        <div><dt>Dữ liệu &amp; dịch vụ</dt><dd>SQLite, Firebase (Crashlytics, FCM, Remote Config), NoSQL, REST API, SSE / streaming realtime, WebSocket, AWS S3</dd></div>
+        <div><dt>Xác thực &amp; nền tảng</dt><dd>Auth0 / OAuth2 PKCE, WebView lai (cookie, header), đa ngôn ngữ (ja/en), màn hình gập &amp; màn hình kép (Android Adaptive Apps, iPhone Duo), xoay màn hình theo cảm biến</dd></div>
+        <div><dt>AI trong phát triển</dt><dd>Claude Code, GitHub Copilot; dùng AI để viết code, debug, phân tích log, review code và sinh test; viết Skill cho Claude Code để tự động hoá việc lặp lại, ví dụ dựng nhanh công cụ đọc chữ từ ảnh (OCR bằng Apple Vision chạy trên máy).</dd></div>
+        <div><dt>Giám sát &amp; công cụ</dt><dd>Datadog, Jira, Backlog, Git (GitHub, GitLab)</dd></div>
+        <div><dt>Khác</dt><dd>Android (Java, MVC), Golang / Buffalo (cơ bản), OOP, cấu trúc dữ liệu &amp; giải thuật</dd></div>
+        <div><dt>Làm việc nhóm</dt><dd>Dẫn dắt nhóm nhỏ, chia việc theo yêu cầu từ BA, phối hợp với UX/UI, backend, DevOps và khách hàng Nhật (qua BrSE)</dd></div>
+      </dl>
+    </section>
+
+    <section class="sec two">
+      <div class="plain">
+        <div class="sec__h"><small>05</small><h2>Học vấn</h2></div>
+        <p><b>Kỹ sư Công nghệ Đa phương tiện</b></p>
+        <p>Học viện Công nghệ Bưu chính Viễn thông (PTIT), TP. HCM · 2014 – 2019</p>
+      </div>
+      <div class="plain">
+        <div class="sec__h"><small>06</small><h2>Ngoại ngữ</h2></div>
+        <p><b>Tiếng Anh</b> — đọc hiểu tài liệu kỹ thuật</p>
+      </div>
+    </section>
+
+    <footer class="page__foot"><span>Huỳnh Đại Phú — Flutter Developer</span><span>2 / 2</span></footer>
+  </section>
+
+</body>
+</html>

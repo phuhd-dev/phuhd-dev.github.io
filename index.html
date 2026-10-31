@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Sửa title / description / og:* cho khớp tên và vai trò của bạn — đây là thứ hiện ra khi gửi link qua Zalo, LinkedIn, Messenger. -->
+  <title>Huỳnh Đại Phú — Flutter Developer</title>
+  <meta name="description" content="Flutter Developer, 6 năm làm app mobile đa nền tảng. Gần nhất: 2 app giao dịch FX cho thị trường Nhật (SBI FX, OANDA証券); trước đó là developer chính của CiAMS (Vinpearl). Sẵn sàng nhận việc mới.">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Huỳnh Đại Phú — Flutter Developer">
+  <meta property="og:description" content="Flutter Developer, 6 năm làm app mobile đa nền tảng. Gần nhất: 2 app giao dịch FX cho thị trường Nhật (SBI FX, OANDA証券). Sẵn sàng nhận việc mới.">
+  <!-- Link đầy đủ để Zalo, LinkedIn, Messenger hiện ảnh xem trước. Đổi tên miền thì sửa cả 2 dòng này. -->
+  <meta property="og:url" content="https://phuhd-dev.github.io/">
+  <meta property="og:image" content="https://phuhd-dev.github.io/assets/avatar.jpg">
+  <meta name="theme-color" content="#eef2f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f1a3a'/%3E%3Crect x='8' y='8' width='16' height='16' rx='3' fill='none' stroke='%23a9b9ff' stroke-width='2.4'/%3E%3Cpath d='M16 8v16' stroke='%23a9b9ff' stroke-width='2.4'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <script>
+    // Đặt theme trước khi vẽ trang để không bị nháy màu.
+    try {
+      var saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Bỏ qua điều hướng</a>
+  <div id="sample-banner" class="sample-banner" hidden></div>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a href="#top" class="mark" id="mark" aria-label="Lên đầu trang"></a>
+      <nav class="nav" id="nav" aria-label="Mục lục"></nav>
+      <div class="tools">
+        <button class="tool" id="lang-toggle" type="button"></button>
+        <button class="tool tool--icon" id="theme-toggle" type="button"></button>
+      </div>
+    </div>
+    <div class="progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="main">
+    <noscript><p class="wrap" style="padding:48px 0">Trang này cần bật JavaScript để hiển thị.</p></noscript>
+  </main>
+
+  <div class="dock" id="dock" aria-hidden="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
