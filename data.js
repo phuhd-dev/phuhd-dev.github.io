@@ -13,7 +13,7 @@
  */
 window.PROFILE = {
   isSample: false,
-  updated: "2026-10",
+  updated: "2026-11",
   // Ngôn ngữ mặc định khi mở trang. Gửi bản tiếng Anh thì thêm ?lang=en vào cuối link.
   defaultLang: "vi",
 
@@ -27,11 +27,11 @@ window.PROFILE = {
     vi: "Tôi làm app mobile đa nền tảng cho fintech, doanh nghiệp và đô thị thông minh. Gần nhất là 2 app giao dịch FX cho thị trường Nhật: **SBI FX** và **OANDA証券**.",
     en: "I build cross-platform mobile apps for fintech, enterprise and smart-city clients. Most recently: two FX trading apps for the Japanese market, **SBI FX** and **OANDA証券**."
   },
-  location: { vi: "Nha Trang, Khánh Hoà", en: "Nha Trang, Vietnam" },
+  location: { vi: "Nha Trang, Khánh Hòa", en: "Nha Trang, Vietnam" },
   availability: { vi: "Sẵn sàng nhận việc mới", en: "Open to new opportunities" },
   openTo: {
-    vi: ["Toàn thời gian", "Tại Nha Trang: Onsite / Hybrid / Remote", "Nơi khác: Remote"],
-    en: ["Full-time", "In Nha Trang: Onsite / Hybrid / Remote", "Elsewhere: Remote"]
+    vi: ["Sẵn sàng làm việc Onsite / Hybrid / Remote"],
+    en: ["Open to Onsite / Hybrid / Remote"]
   },
 
   contact: {
@@ -57,11 +57,11 @@ window.PROFILE = {
 
   about: {
     vi: [
-      "Flutter Developer (mid-level), có **6 năm phát triển ứng dụng mobile đa nền tảng** (iOS & Android) cho **fintech, doanh nghiệp và đô thị thông minh**. Gần nhất tôi phát triển 2 app giao dịch FX cho thị trường Nhật Bản: **SBI FX** (đã có trên store) và **OANDA証券** (developer chính cùng leader, dựng từ con số 0 đến giai đoạn chuẩn bị phát hành). Tôi làm chính phần **đặt lệnh, cập nhật giá realtime và đăng nhập**.",
+      "Flutter Developer (mid-level), có **6 năm phát triển ứng dụng mobile đa nền tảng** (iOS & Android) cho **fintech, doanh nghiệp và đô thị thông minh**. Gần nhất tôi phát triển 2 app giao dịch FX cho thị trường Nhật Bản: **SBI FX** (đã có trên store) và **OANDA証券** (developer chính cùng leader, dựng từ con số 0 đến bản phát hành 1.0.0, 11/2026). Tôi làm chính phần **đặt lệnh, cập nhật giá realtime và đăng nhập**.",
       "Trước đó tôi là **developer chính của CiAMS**, hệ thống quản lý tài sản cho nhân viên Vinpearl, và đã **giảm 30% thời gian tải app**. Tôi có kinh nghiệm dẫn dắt nhóm nhỏ, review code, xây codebase theo Clean Architecture và viết test, và **dùng AI (Claude Code, GitHub Copilot) hằng ngày** để viết code, debug và kiểm thử."
     ],
     en: [
-      "Mid-level Flutter developer with **6 years of cross-platform mobile development** (iOS & Android) for **fintech, enterprise and smart-city** clients. Most recently I built two FX trading apps for the Japanese market: **SBI FX** (live on the stores) and **OANDA証券** (main developer alongside the lead, from scratch to release preparation). My main areas were **order entry, real-time prices and login**.",
+      "Mid-level Flutter developer with **6 years of cross-platform mobile development** (iOS & Android) for **fintech, enterprise and smart-city** clients. Most recently I built two FX trading apps for the Japanese market: **SBI FX** (live on the stores) and **OANDA証券** (main developer alongside the lead, from scratch to the 1.0.0 release in Nov 2026). My main areas were **order entry, real-time prices and login**.",
       "Before that I was the **main developer of CiAMS**, Vinpearl's asset management app for staff, where I **cut app load time by 30%**. I have led small teams, reviewed code, built Clean Architecture codebases and written tests, and I **use AI (Claude Code, GitHub Copilot) every day** for coding, debugging and testing."
     ]
   },
@@ -71,8 +71,8 @@ window.PROFILE = {
       company: "GUIDE Co., Ltd",
       role: { vi: "Lập trình viên Mobile (Flutter)", en: "Mobile Developer (Flutter)" },
       start: "2023-01",
-      end: "2026-10",
-      location: { vi: "Tân Bình, TP. HCM", en: "Tan Binh, Ho Chi Minh City" },
+      end: null,                                  // vẫn đang làm, dự kiến nghỉ 31/01/2027 → hiện "Hiện tại"
+      location: { vi: "Trụ sở: Tân Bình, TP. HCM · Hình thức làm việc: Remote tại Nha Trang", en: "Office: Tan Binh, Ho Chi Minh City · Work mode: Remote from Nha Trang" },
       summary: {
         vi: "Phát triển 2 app giao dịch FX cho SBI FX và OANDA証券, phục vụ thị trường Nhật Bản. Mỗi dự án có team mobile 3 người (1 leader, 2 developer), làm việc với khách hàng Nhật qua BrSE.",
         en: "Built two FX trading apps, SBI FX and OANDA証券, for the Japanese market. Each project had a 3-person mobile team (1 lead, 2 developers) working with Japanese clients through a BrSE."
@@ -80,7 +80,7 @@ window.PROFILE = {
       highlights: {
         vi: [
           "Làm chính phần **đặt lệnh của SBIFX**, lõi nghiệp vụ của app: đủ các loại lệnh (thường, IFD, OCO, IFD-OCO, Limit/Stop, Trail, Speed Order), sửa lệnh, đóng vị thế hàng loạt, cùng công thức **lãi/lỗ quy ra Yên và tính theo pips**. Qua kiểm thử tích hợp (ITb) **không phát sinh lỗi nghiêm trọng**.",
-          "Là **developer chính cùng leader**, dựng **app OANDA từ con số 0** (02/2025) đến giai đoạn chuẩn bị phát hành bản đầu tiên (**dự kiến 11/2026**): home, watchlist, đặt lệnh, position.",
+          "Là **developer chính cùng leader**, dựng **app OANDA từ con số 0** (02/2025) đến **bản phát hành 1.0.0** (**11/2026**): home, watchlist, đặt lệnh, position. App đã lên Google Play và TestFlight, beta kín cho **100 người dùng** do OANDA mời, **giao dịch bằng tài khoản thật**.",
           "Xây phần **cập nhật giá và vị thế realtime**: dữ liệu không bị mất hay sai thứ tự khi mạng chậm, khi đổi tab hoặc khi app chạy nền.",
           "Đưa app OANDA lên **màn hình gập và màn hình kép** (Pixel Fold, Android Adaptive Apps, **iPhone Duo trên iOS 27 SDK**): bố cục responsive theo kích thước màn hình; giữ đúng trạng thái và **phiên đăng nhập** khi gập, mở hoặc xoay máy; sửa lỗi **app bị treo khi đổi chế độ điều hướng hệ thống** (xử lý cả phía native Android).",
           "Đề xuất và dựng **mock stream API, mock Remote Config** và cơ chế **chuyển nhanh giữa API thật và stub API**, giúp cả team phát triển và test mà không phải chờ backend. Review code cho các thành viên trong team.",
@@ -88,7 +88,7 @@ window.PROFILE = {
         ],
         en: [
           "Main developer of the **SBIFX order entry**, the core of the app: every order type (market, IFD, OCO, IFD-OCO, Limit/Stop, Trail, Speed Order), order amendment, bulk position closing, plus **P/L in yen and in pips**. **No critical defects** in integration testing (ITb).",
-          "As **main developer alongside the lead**, built the **OANDA app from scratch** (Feb 2025) up to preparing its first release (**planned for Nov 2026**): home, watchlist, order entry, positions.",
+          "As **main developer alongside the lead**, built the **OANDA app from scratch** (Feb 2025) to its **1.0.0 release** (**Nov 2026**): home, watchlist, order entry, positions. It is now on Google Play and TestFlight as an invite-only beta for **100 users** trading on **live accounts**.",
           "Built **real-time price and position updates** that never drop or reorder data on slow networks, tab switches or while the app is in the background.",
           "Brought the OANDA app to **foldable and dual-screen devices** (Pixel Fold, Android Adaptive Apps, **iPhone Duo on the iOS 27 SDK**): size-responsive layouts; state and **login session** kept when folding, unfolding or rotating; fixed an **app freeze when switching the system navigation mode** (including on the native Android side).",
           "Proposed and built **mock streaming APIs, a mock Remote Config** and a **quick switch between real and stub APIs**, so the whole team could develop and test without waiting on the backend. Reviewed code for teammates.",
@@ -97,8 +97,8 @@ window.PROFILE = {
       },
       // Tiêu đề ngắn cho từng gạch đầu dòng ở trên (cùng thứ tự). Có tiêu đề thì công ty này được trình bày dạng lưới nổi bật.
       titles: {
-        vi: ["Đặt lệnh SBIFX", "OANDA từ con số 0", "Giá & vị thế realtime", "Màn hình gập & màn hình kép", "Mock API cho cả team", "AI trong công việc hằng ngày"],
-        en: ["SBIFX order entry", "OANDA from scratch", "Real-time prices & positions", "Foldable & dual-screen", "Mock APIs for the team", "AI in daily work"]
+        vi: ["Đặt lệnh SBIFX", "OANDA từ con số 0 đến 1.0.0", "Giá & vị thế realtime", "Màn hình gập & màn hình kép", "Mock API cho cả team", "AI trong công việc hằng ngày"],
+        en: ["SBIFX order entry", "OANDA from scratch to 1.0.0", "Real-time prices & positions", "Foldable & dual-screen", "Mock APIs for the team", "AI in daily work"]
       },
       tech: ["Flutter", "Riverpod", "AutoRoute", "SSE", "Auth0", "Platform channel"]
     },
@@ -179,8 +179,8 @@ window.PROFILE = {
   projects: [
     {
       name: "SBI FX",
-      start: "2023-01", end: "2026-10",          // dùng cho dải thời gian
-      period: "2023 – 2026",
+      start: "2023-01", end: null,               // dùng cho dải thời gian
+      period: { vi: "2023 – nay", en: "2023 – present" },
       domain: { vi: "Giao dịch FX, thị trường Nhật", en: "FX trading, Japan" },
       role: { vi: "Developer, làm chính phần đặt lệnh", en: "Developer, main dev on order entry" },
       tech: ["Flutter", "Riverpod", "AutoRoute", { vi: "Platform channel iOS", en: "iOS platform channel" }],
@@ -188,12 +188,12 @@ window.PROFILE = {
     },
     {
       name: "OANDA証券",
-      start: "2025-02", end: "2026-10",          // dùng cho dải thời gian
-      period: "2025 – 2026",
+      start: "2025-02", end: null,               // dùng cho dải thời gian
+      period: { vi: "2025 – nay", en: "2025 – present" },
       domain: { vi: "Giao dịch FX & CFD, thị trường Nhật", en: "FX & CFD trading, Japan" },
       role: { vi: "Developer chính cùng leader, từ đầu dự án", en: "Main developer with the lead, from day one" },
       tech: ["Flutter", "Riverpod", "SSE", "Auth0", "WebView"],
-      link: ""
+      link: "https://play.google.com/store/apps/details?id=com.oanda.android.japan"   // iOS chỉ có TestFlight, không có link công khai
     },
     {
       name: "CiAMS",
